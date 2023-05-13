@@ -21,6 +21,11 @@ class MemberServiceImplTest {
 
         Member member = memberService.signup(Member.builder()
                                                     .memberName("JPA")
+                                                    .address(Address.builder()
+                                                            .zipcode("우편번호")
+                                                            .city("도시")
+                                                            .street("도로명")
+                                                            .build())
                                                     .build());
 
         Assertions.assertEquals(member, memberRepository.findById(member.getMemberId()).orElse(null));
