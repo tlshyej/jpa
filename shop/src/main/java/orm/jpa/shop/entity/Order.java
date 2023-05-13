@@ -70,7 +70,7 @@ public class Order {
     public void cancel() {
         this.setStatus(OrderStatus.CANCEL);
         for (OrderItem orderItem : orderItemList) {
-            orderItem.cancle();
+            orderItem.cancel();
         }
     }
 

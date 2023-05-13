@@ -55,4 +55,18 @@ class OrderServiceImplTest {
         return itemRepository.save(book);
     }
 
+    @Test
+    void cancelOrder() {
+        Member member = createMember();
+        int stockQuantity = 10;
+        int orderCount = 2;
+        Item item = createBookItem("JPA", 10, 10000);
+
+        Long orderId = orderService.order(member.getMemberId(), item.getItemId(), orderCount);
+        assertEquals(item.getStockQuantity(), stockQuantity - orderCount);
+
+        orderService.cancelOrder(orderId);
+        assertEquals(item.getStockQuantity(), stockQuantity);
+    }
+
 }

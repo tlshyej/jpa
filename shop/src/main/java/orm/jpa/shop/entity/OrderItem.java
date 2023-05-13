@@ -34,7 +34,7 @@ public class OrderItem {
     @NonNull
     private int count;
 
-    public void cancle() {
+    public void cancel() {
         getItem().addStock(count);
     }
 
